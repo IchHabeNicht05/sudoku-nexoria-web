@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  /* Definice tvých Nexoria barev pro v4 */
+  --color-nexoria-dark: #050507;
+  --color-nexoria-card: #0d0d12;
+  --color-accent-purple: #6366f1;
+  --color-accent-blue: #3b82f6;
+  
+  /* Definice gradientu pro text */
+  --background-image-nexoria-gradient: linear-gradient(to right, #6366f1, #3b82f6);
+}
+
+/* Tvoje vlastní komponenty (tlačítka a skleněný efekt) */
+@utility glass-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s;
+}
+
+@utility btn-primary {
+  background-image: var(--background-image-nexoria-gradient);
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 0.2s;
+}
+
+@utility text-gradient {
+  background-image: var(--background-image-nexoria-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@layer components {
+  .input-field {
+    @apply w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white outline-none transition-all focus:border-accent-blue focus:bg-white/10;
+  }
+
+  .btn-next {
+    @apply w-full bg-white/10 hover:bg-white/20 py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 uppercase text-xs tracking-widest border border-white/5;
+  }
+
+  .btn-back {
+    @apply px-6 bg-white/5 hover:bg-white/10 rounded-2xl transition-all flex items-center justify-center border border-white/5;
+  }
+}
+
+body {
+  background-color: var(--color-nexoria-dark);
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
+}
